@@ -1,0 +1,37 @@
+{% extends 'base/base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+
+	{% from "_macro.html" import render_field%}
+
+	<form name="sendMessage" id="contactForm" method="POST" class='container pt-5'>
+		<div class="row control-group">
+			<div class="form-group col-xs-8 floating-label-form-group controls">
+				{{ render_field(form.username, class='form-control') }}
+			</div>
+		</div>
+		<div class="row control-group">
+			<div class="form-group col-xs-12 floating-label-form-group controls">
+				{{ render_field(form.email, class='form-control') }}
+			</div>
+		</div> 
+		<div class="row control-group">
+			<div class="form-group col-xs-12 floating-label-form-group controls">
+				{{ render_field(form.comment, class='form-control') }}
+			</div>
+		</div>
+
+		{{ form.honeypot }}
+
+		<br>
+		<div id="success"></div>
+		<div class="row">
+			<div class="form-group col-xs-12">
+				<input type="submit" class="btn btn-outline-secondary" value="Send" />
+			</div>
+		</div>
+	</form>
+
+{% endblock %}
