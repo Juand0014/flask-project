@@ -6,7 +6,7 @@
 
 	{% from "_macro.html" import render_field%}
 
-	<form method="post" class='container pt-5'>
+	<form id="create-form" method="post" class='container pt-5'>
 		<input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
 		<div class="row control-group">
 			<div class="form-group col-xs-12 floating-label-form-group controls">
@@ -16,6 +16,11 @@
 		<div class="row control-group">
 			<div class="form-group col-xs-12 floating-label-form-group controls">
 				{{ render_field(form.password, class='form-control') }}
+			</div>
+		</div>
+		<div class="row control-group">
+			<div class="form-group col-xs-12 floating-label-form-group controls">
+				{{ render_field(form.email, class='form-control') }}
 			</div>
 		</div>
 
